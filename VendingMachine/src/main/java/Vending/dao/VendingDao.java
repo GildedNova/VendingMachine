@@ -4,19 +4,27 @@
  */
 package Vending.dao;
 
-import Vending.dto.Item;
 import java.util.List;
+import Vending.dto.Item;
+
 
 /**
  *
  * @author Austin
  */
+
+
 public interface VendingDao {
+    
+    // display all Items in vending machine
     List<Item> displayItems();
     
+    //add money to vending machine
     void addMoney();
     
+    //choosing items from inventory
     void chooseItem();
     
+    //updates inventory by removing an item from itemlist
     void updateInventory();
 }
