@@ -22,7 +22,7 @@ import java.util.Scanner;
  * @author Austin
  */
 public class VendingDaoFileImpl implements VendingDao {
-    
+
     public static final String ITEMS_FILE = "items.txt";
     public static final String DELIMITER = "::";
 
@@ -121,57 +121,56 @@ public class VendingDaoFileImpl implements VendingDao {
         // close scanner
         scanner.close();
     }
+
     private String marshallItem(Item item) {
-		// We need to turn a item object into a line of text for our file.
-		// For example, we need an in memory object to end up like this:
-		// ItemId::Name::Cost::Inventory::
+        // We need to turn a item object into a line of text for our file.
+        // For example, we need an in memory object to end up like this:
+        // ItemId::Name::Cost::Inventory::
 
+        // Start with the ItemID, since that's supposed to be first.
+        String itemAsText = item.getItemId() + DELIMITER;
 
-		// Start with the ItemID, since that's supposed to be first.
-		String itemAsText = item.getItemId() + DELIMITER;
+        // add the rest of the properties in the correct order:
+        // get item name
+        itemAsText += item.getName() + DELIMITER;
 
-		// add the rest of the properties in the correct order:
+        // get cost
+        itemAsText += item.getCost() + DELIMITER;
 
-		// get item name
-		itemAsText += item.getName() + DELIMITER;
+        // get inventory
+        itemAsText += item.getInventory() + DELIMITER;
 
-		// get cost
-		itemAsText += item.getCost() + DELIMITER;
+        // We have now turned a item to text! Return it!
+        return itemAsText;
+    }
 
-		// get inventory
-		itemAsText += item.getInventory() + DELIMITER;
+    /**
+     * Writes all items in the item out to a item file.
+     *
+     * @throws ClassRosterDaoException if an error occurs writing to the file
+     */
+    private void writeLibrary() {
+        PrintWriter out = null;
 
+        try {
+            out = new PrintWriter(new FileWriter(ITEMS_FILE));
+        } catch (IOException e) {
 
-		// We have now turned a item to text! Return it!
-		return itemAsText;
-	}
+        }
 
-	/**
-	 * Writes all items in the item out to a item file.
-	 * 
-	 * @throws ClassRosterDaoException if an error occurs writing to the file
-	 */
-	private void writeLibrary(){
-		PrintWriter out = null;
+        // Write out the item objects to the item file.
+        String DVDAsText;
+        List<Item> itemList = this.displayItems();
+        for (Item currentItem : itemList) {
+            // turn a item into a String
+            DVDAsText = marshallItem(currentItem);
+            // write the item object to the file
+            out.println(DVDAsText);
+            // force PrintWriter to write line to the file
+            out.flush();
+        }
+        // Clean up
+        out.close();
+    }
 
-		try {
-			out = new PrintWriter(new FileWriter(ITEMS_FILE));
-		} catch (IOException e) {
-			
-		}
-
-		// Write out the item objects to the item file.
-		String DVDAsText;
-		List<Item> itemList = this.displayItems();
-		for (Item currentItem : itemList) {
-			// turn a item into a String
-			DVDAsText = marshallItem(currentItem);
-			// write the item object to the file
-			out.println(DVDAsText);
-			// force PrintWriter to write line to the file
-			out.flush();
-		}
-		// Clean up
-		out.close();
-	}
 }
