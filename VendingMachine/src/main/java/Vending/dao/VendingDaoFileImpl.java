@@ -68,6 +68,16 @@ public class VendingDaoFileImpl implements VendingDao {
         BigDecimal itemCost = tempItemCost.multiply(BigDecimal.valueOf(100));
         return itemCost;
     }
+        
+    //get item inventory
+    @Override
+    public int getItemInventory(String itemId) throws VendingPersistenceException{
+        loadItems();
+        Item tempItem = items.get(itemId);
+        int itemInventory = Integer.parseInt(tempItem.getInventory());
+        
+        return itemInventory;
+    }
 
     private Item unmarshallItem(String itemAsText) {
         // ItemAsText is expecting a line read in from our file.
