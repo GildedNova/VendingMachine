@@ -17,14 +17,14 @@ import Vending.dto.Item;
 public interface VendingDao {
     
     // display all Items in vending machine
-    List<Item> displayItems();
+    List<Item> displayItems() throws VendingPersistenceException;
     
     //add money to vending machine
-    void addMoney();
+    void addMoney() throws VendingPersistenceException;
     
     //choosing items from inventory
-    void chooseItem();
+    Item chooseItem(String itemId) throws VendingPersistenceException;
     
     //updates inventory by removing an item from itemlist
-    void updateInventory();
+    Item updateInventory(String itemId) throws VendingPersistenceException;
 }
