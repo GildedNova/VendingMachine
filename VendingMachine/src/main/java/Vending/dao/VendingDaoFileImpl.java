@@ -4,12 +4,15 @@
  */
 package Vending.dao;
 
+import java.util.List;
+import Vending.dto.Item;
+
 /**
  *
  * @author Austin
  */
-public class VendingDaoFileImpl {
-    @Override
+public class VendingDaoFileImpl implements VendingDao {
+        @Override
 	public List<Item> displayItems(){
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
@@ -18,7 +21,7 @@ public class VendingDaoFileImpl {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	@Override
-	public void chooseItems() {
+	public void chooseItem() {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	@Override
