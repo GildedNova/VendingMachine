@@ -31,6 +31,7 @@ public class VendingDaoFileImpl implements VendingDao {
     // display all Items in vending machine
     @Override
     public List<Item> displayItems() {
+        loadItems();
         return new ArrayList<Item>(items.values());
     }
 
