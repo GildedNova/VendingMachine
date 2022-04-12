@@ -30,4 +30,7 @@ public interface VendingDao {
     
     //get cost of item
     BigDecimal getItemCost(String itemId) throws VendingPersistenceException;
+    
+    //get item invesntory
+    int getItemInventory(String itemId) throws VendingPersistenceException;
 }
