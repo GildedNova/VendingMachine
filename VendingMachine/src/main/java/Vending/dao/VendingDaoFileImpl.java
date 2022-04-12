@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.math.BigDecimal;
 
 /**
  *
@@ -58,6 +59,15 @@ public class VendingDaoFileImpl implements VendingDao {
         return items.get(itemId);
         
     }
+    //get cost of item
+    @Override
+    public BigDecimal getItemCost(String itemId) throws VendingPersistenceException{
+        loadItems();
+        Item tempItem = items.get(itemId);
+        BigDecimal tempItemCost = new BigDecimal(tempItem.getCost());
+        BigDecimal itemCost = tempItemCost.multiply(BigDecimal.valueOf(100));
+        return itemCost;
+    }
 
     private Item unmarshallItem(String itemAsText) {
         // ItemAsText is expecting a line read in from our file.
@@ -98,6 +108,7 @@ public class VendingDaoFileImpl implements VendingDao {
         // We have now created a item! Return it!
         return itemFromFile;
     }
+    
 
     private void loadItems() throws VendingPersistenceException{
         Scanner scanner = null;
