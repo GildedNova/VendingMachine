@@ -30,27 +30,33 @@ public class VendingDaoFileImpl implements VendingDao {
 
     // display all Items in vending machine
     @Override
-    public List<Item> displayItems() {
+    public List<Item> displayItems() throws VendingPersistenceException{
         loadItems();
         return new ArrayList<Item>(items.values());
     }
 
     //add money to vending machine
     @Override
-    public void addMoney() {
+    public void addMoney() throws VendingPersistenceException{
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     //choosing items from inventory
     @Override
-    public void chooseItem() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Item chooseItem(String itemId) throws VendingPersistenceException{
+        loadItems();
+        return items.get(itemId);
     }
 
     //updates inventory by removing an item from itemlist
     @Override
-    public void updateInventory() {
-        throw new UnsupportedOperationException("Not supported");
+    public Item updateInventory(String itemId) throws VendingPersistenceException{
+        loadItems();
+        Item updatedItem = items.get(itemId);
+        int inventory = Integer.parseInt(updatedItem.getInventory()) - 1;
+        updatedItem.setInventory(String.valueOf(inventory));
+        return items.get(itemId);
+        
     }
 
     private Item unmarshallItem(String itemAsText) {
@@ -93,7 +99,7 @@ public class VendingDaoFileImpl implements VendingDao {
         return itemFromFile;
     }
 
-    private void loadItems() {
+    private void loadItems() throws VendingPersistenceException{
         Scanner scanner = null;
 
         try {
@@ -150,7 +156,7 @@ public class VendingDaoFileImpl implements VendingDao {
      *
      * @throws ClassRosterDaoException if an error occurs writing to the file
      */
-    private void writeLibrary() {
+    private void writeLibrary() throws VendingPersistenceException{
         PrintWriter out = null;
 
         try {
