@@ -8,6 +8,21 @@ package Vending.dao;
  *
  * @author Austin
  */
-public interface VendingDao {
-    
+public class VendingDaoFileImpl implements VendingDao {
+	@Override
+	public List<Item> displayItems(){
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	@Override
+	public void addMoney() {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	@Override
+	public void chooseItems() {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	@Override
+	public void updateInventory() {
+		throw new UnsupportedOperationException("Not supported");
+	}
 }
