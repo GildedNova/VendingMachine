@@ -34,6 +34,10 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String getItemId(){
+        return itemId;
+    }
 
     public String getCost() {
         return cost;
