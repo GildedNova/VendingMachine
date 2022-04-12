@@ -14,6 +14,40 @@ import java.util.Objects;
 //These items will be stored in a text file using DAO
 public class Item {
     
+    private final String itemId;
+    private String name;
+    private String cost;
+    private String inventory;
+
+    public Item(String itemId){
+        this.itemId = itemId;
+    }
+    
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+
+    public void setInventory(String inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public String getInventory() {
+        return inventory;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    
     
     @Override
     public int hashCode() {
@@ -21,6 +55,7 @@ public class Item {
         hash = 89 * hash + Objects.hashCode(this.name);
         hash = 89 * hash + Objects.hashCode(this.cost);
         hash = 89 * hash + Objects.hashCode(this.inventory);
+        hash = 89 * hash + Objects.hashCode(this.itemId);
         return hash;
     }
 
@@ -45,12 +80,15 @@ public class Item {
         if (!Objects.equals(this.inventory, other.inventory)) {
             return false;
         }
+        if (!Objects.equals(this.itemId, other.itemId)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Item{" + "Name=" + name + ", Cost=" + cost + ", Inventory=" + inventory + '}';
+        return "Item{" + "ItemId= " + itemId + "Name=" + name + ", Cost=" + cost + ", Inventory=" + inventory + '}';
     }
     
 }
