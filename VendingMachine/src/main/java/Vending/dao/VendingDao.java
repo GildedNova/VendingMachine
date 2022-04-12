@@ -9,5 +9,11 @@ package Vending.dao;
  * @author Austin
  */
 public interface VendingDao {
+    List<Item> displayItems();
     
+    addMoney();
+    
+    chooseItem();
+    
+    updateInventory();
 }
