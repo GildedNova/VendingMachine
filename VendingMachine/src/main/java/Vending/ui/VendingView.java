@@ -19,17 +19,12 @@ public class VendingView {
     }
 
     public int printMenuAndGetSelection() {
-        io.print("Item Menu");
-        io.print("1. Dorito's Nachos Chips");
-        io.print("2. Cheetos Chips");
-        io.print("3. Ruffles Sour Cream n Onion Chips");
-        io.print("4. Protein Bar");
-        io.print("5. KitKat Bar");
-        io.print("6. Twix Bar");
-        io.print("7. Sparkling Water");
-        io.print("8. Exit");
+        io.print("Main Menu");
+        io.print("1. Add money");
+        io.print("2. Choose Item");
+        io.print("3. Exit");
 
-        return io.readInt("Please select from the above choices.", 1, 8);
+        return io.readInt("Please select from the above choices.", 1, 3);
     }
     
     

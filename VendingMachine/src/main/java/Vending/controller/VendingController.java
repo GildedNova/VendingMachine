@@ -34,27 +34,12 @@ public class VendingController {
 
                 switch (menuSelection) {
                     case 1:
-                        io.print("DROP DORITO'S NACHOS CHIPS");
+                        io.print("ADD MONEY");
                         break;
                     case 2:
-                        io.print("DROP CHEETOS CHIPS");
+                        io.print("CHOOSE ITEM");
                         break;
                     case 3:
-                        io.print("DROP RUFFLES SOURCREAM N ONION CHIPS");
-                        break;
-                    case 4:
-                        io.print("DROP PROTEIN BAR");
-                        break;
-                    case 5:
-                        io.print("DROP KITKAT BAR");
-                        break;
-                    case 6:
-                        io.print("DROP TWIX BAR");
-                        break;
-                    case 7:
-                        io.print("DROP SPARKLING WATER");
-                        break;
-                    case 8:
                         keepGoing = false;
                         break;
                     default:

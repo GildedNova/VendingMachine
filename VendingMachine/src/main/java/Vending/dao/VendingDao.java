@@ -4,6 +4,9 @@
  */
 package Vending.dao;
 
+import Vending.dto.Item;
+import java.util.List;
+
 /**
  *
  * @author Austin
@@ -11,9 +14,9 @@ package Vending.dao;
 public interface VendingDao {
     List<Item> displayItems();
     
-    addMoney();
+    void addMoney();
     
-    chooseItem();
+    void chooseItem();
     
-    updateInventory();
+    void updateInventory();
 }
