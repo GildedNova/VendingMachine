@@ -6,7 +6,7 @@ package Vending.dao;
 
 import java.util.List;
 import Vending.dto.Item;
-
+import java.math.BigDecimal;
 
 /**
  *
@@ -27,4 +27,7 @@ public interface VendingDao {
     
     //updates inventory by removing an item from itemlist
     Item updateInventory(String itemId) throws VendingPersistenceException;
+    
+    //get cost of item
+    BigDecimal getItemCost(String itemId) throws VendingPersistenceException;
 }
