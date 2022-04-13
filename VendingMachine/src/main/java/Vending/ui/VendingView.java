@@ -27,7 +27,8 @@ public class VendingView {
     public VendingView(UserIO io) {
         this.io = io;
     }
-
+    
+    //Prints menu to user and asks for a users choice of which to chose.
     public int printMenuAndGetSelection() {
         io.print("Main Menu");
         io.print("1. Choose Item");
@@ -36,11 +37,13 @@ public class VendingView {
         return io.readInt("Please select from the above choices.", 1, 3);
     }
     
+    //Asks user to how much money to place into the vending machine. Takes in a $$.CC format
     public String askUserForAmount(){
         return io.readString("How much money would you like to put into the machine? $.CC format: ");
         
     }
-        
+    
+    //List all items in the .txt file to display to user
     public void displayItemList(List<Item> itemList) {
         for (Item currentItem : itemList) {
             String itemInfo = String.format("#%s : %s : Cost: %s : Amount left: %s",
@@ -52,10 +55,14 @@ public class VendingView {
         }
     }
     
+    //Gets an item id from user
     public String getItemId(){
         return io.readString("Choose an item ID you would like to purchase.");
     }
     
+    
+    //Displays the change to user. Uses Change Class to calculate change and returns a hashmap with Coins as keys, and
+    //amount of coins as the values. BigDecimal calculations for processing the change.
     public void displayMoney(BigDecimal money, Change change){
         HashMap<String, String> changeMap = change.getChange(money.intValue());
         io.print("======Here is your change======");
