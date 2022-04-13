@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  */
 
 //Implements auditing by calling writeAuditEntry with string passed being the audit message.
-public class VendingAuditDaoFileImpl {
+public class VendingAuditDaoFileImpl implements VendingAuditDao{
     private static final String AUDIT_FILE = "audit.txt";
     
     public void writeAuditEntry(String entry) throws VendingPersistenceException {

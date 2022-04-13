@@ -31,51 +31,46 @@ public class VendingDaoFileImpl implements VendingDao {
 
     // display all Items in vending machine
     @Override
-    public List<Item> displayItems() throws VendingPersistenceException{
+    public List<Item> displayItems() throws VendingPersistenceException {
         loadItems();
         return new ArrayList<Item>(items.values());
     }
 
-    //add money to vending machine
-    @Override
-    public void addMoney() throws VendingPersistenceException{
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     //choosing items from inventory
     @Override
-    public Item chooseItem(String itemId) throws VendingPersistenceException{
+    public Item chooseItem(String itemId) throws VendingPersistenceException {
         loadItems();
         return items.get(itemId);
     }
 
     //updates inventory by removing an item from itemlist
     @Override
-    public Item updateInventory(String itemId) throws VendingPersistenceException{
+    public Item updateInventory(String itemId) throws VendingPersistenceException {
         loadItems();
         Item updatedItem = items.get(itemId);
         int inventory = Integer.parseInt(updatedItem.getInventory()) - 1;
         updatedItem.setInventory(String.valueOf(inventory));
         return items.get(itemId);
-        
+
     }
+
     //get cost of item
     @Override
-    public BigDecimal getItemCost(String itemId) throws VendingPersistenceException{
+    public BigDecimal getItemCost(String itemId) throws VendingPersistenceException {
         loadItems();
         Item tempItem = items.get(itemId);
         BigDecimal tempItemCost = new BigDecimal(tempItem.getCost());
         BigDecimal itemCost = tempItemCost.multiply(BigDecimal.valueOf(100));
         return itemCost;
     }
-        
+
     //get item inventory
     @Override
-    public int getItemInventory(String itemId) throws VendingPersistenceException{
+    public int getItemInventory(String itemId) throws VendingPersistenceException {
         loadItems();
         Item tempItem = items.get(itemId);
         int itemInventory = Integer.parseInt(tempItem.getInventory());
-        
+
         return itemInventory;
     }
 
@@ -118,9 +113,8 @@ public class VendingDaoFileImpl implements VendingDao {
         // We have now created a item! Return it!
         return itemFromFile;
     }
-    
 
-    private void loadItems() throws VendingPersistenceException{
+    private void loadItems() throws VendingPersistenceException {
         Scanner scanner = null;
 
         try {
@@ -177,7 +171,7 @@ public class VendingDaoFileImpl implements VendingDao {
      *
      * @throws ClassRosterDaoException if an error occurs writing to the file
      */
-    private void writeLibrary() throws VendingPersistenceException{
+    private void writeLibrary() throws VendingPersistenceException {
         PrintWriter out = null;
 
         try {

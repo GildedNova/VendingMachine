@@ -1,7 +1,5 @@
-ItemId::Name::Cost::Inventory::
-ItemId::Name::Cost::Inventory::
-ItemId::Name::Cost::Inventory::
-ItemId::Name::Cost::Inventory::
-ItemId::Name::Cost::Inventory::
-ItemId::Name::Cost::Inventory::
+0001::Cookie::1.00::10::
+0002::Sun chips::0.75::10::
+0003::Water bottle::1.00::10::
+0004::Ice Cream::1.25::10::
 

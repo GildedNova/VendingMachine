@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: Vending.service.VendingServiceLayerImplTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec <<< FAILURE!
+Vending.service.VendingServiceLayerImplTest.testChooseItem()  Time elapsed: 0.002 sec  <<< FAILURE!
+Vending.service.VendingInsufficientFundsException: Invalid funds
+	at Vending.service.VendingServiceLayerImpl.chooseItem(VendingServiceLayerImpl.java:36)
+	at Vending.service.VendingServiceLayerImplTest.testChooseItem(VendingServiceLayerImplTest.java:54)
+
+Vending.service.VendingServiceLayerImplTest.testGetItemCost()  Time elapsed: 0.012 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should have recieved the item cost of 0.50 or 50 pennies ==> expected: <50.0> but was: <50.00>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1135)
+	at Vending.service.VendingServiceLayerImplTest.testGetItemCost(VendingServiceLayerImplTest.java:128)
+
+Vending.service.VendingServiceLayerImplTest.testGetInventory()  Time elapsed: 0.001 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should return 9 because the returnedItem has 7 left in stock ==> expected: <9> but was: <10>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:542)
+	at Vending.service.VendingServiceLayerImplTest.testGetInventory(VendingServiceLayerImplTest.java:142)
+
+Vending.service.VendingServiceLayerImplTest.testNoItemInventoryTest()  Time elapsed: 0.001 sec  <<< FAILURE!
+Vending.service.VendingInsufficientFundsException: Invalid funds
+	at Vending.service.VendingServiceLayerImpl.chooseItem(VendingServiceLayerImpl.java:36)
+	at Vending.service.VendingServiceLayerImplTest.testNoItemInventoryTest(VendingServiceLayerImplTest.java:91)
+
+Vending.service.VendingServiceLayerImplTest.testUpdateInventory()  Time elapsed: 0.002 sec  <<< FAILURE!
+Vending.service.VendingInsufficientFundsException: Invalid funds
+	at Vending.service.VendingServiceLayerImpl.chooseItem(VendingServiceLayerImpl.java:36)
+	at Vending.service.VendingServiceLayerImplTest.testUpdateInventory(VendingServiceLayerImplTest.java:111)
+
+Vending.service.VendingServiceLayerImplTest.testInsufficientFunds()  Time elapsed: 0.001 sec  <<< FAILURE!
+Vending.service.VendingInsufficientFundsException: Invalid funds
+	at Vending.service.VendingServiceLayerImpl.chooseItem(VendingServiceLayerImpl.java:36)
+	at Vending.service.VendingServiceLayerImplTest.testInsufficientFunds(VendingServiceLayerImplTest.java:71)
+
